@@ -6,7 +6,7 @@ public class BinarySearchTreeInsertion {
     private Node insert(int value){
         return null;
     }
-    private Node insert(Node root,int value){
+    public Node insert(Node root,int value){
         if (root==null){
             root=new Node(value);
             //return root;
@@ -36,15 +36,4 @@ public class BinarySearchTreeInsertion {
             }
             binarySearchTreeInsertion.preOrder(binarySearchTree);
         }
-}
-
-class Node{
-    int data;
-    Node leftNode;
-    Node rightNode;
-
-    public Node(int data){
-        this.data=data;
-        leftNode=rightNode=null;
-    }
 }
