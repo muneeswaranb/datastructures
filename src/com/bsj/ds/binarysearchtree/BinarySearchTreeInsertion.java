@@ -19,7 +19,7 @@ public class BinarySearchTreeInsertion {
         }
         return root;
     }
-    private void preOrder(Node root) {
+    public void preOrder(Node root) {
         if (root != null) {
             preOrder(root.leftNode);
             System.out.println("" + root.data);
