@@ -66,6 +66,5 @@ public class BinarySearchNthGreatestDelete {
         }
         binarySearchTree = new BinarySearchNthGreatestDelete().deletenthGreatest(binarySearchTree, 3);
         binarySearchTreeInsertion.preOrder(binarySearchTree);
-//        System.out.println("isDeleted : "+isDeleted);
     }
 }
