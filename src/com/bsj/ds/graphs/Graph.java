@@ -2,6 +2,7 @@ package com.bsj.ds.graphs;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Graph {
     //int numberOfVertices;
@@ -47,16 +48,16 @@ public class Graph {
             connectionList = new LinkedList();
         }
         for(Edge connection:connectionList){
-            if(data.equalsIgnoreCase(connection.endVertex))
-            {
-                System.out.println("Names are equal");
-                return;
-            }
+            if(data.equalsIgnoreCase(connection.endVertex)) return;
         }
         connectionList.add(0, new Edge(destination, data));
         edgeList.put(destination, connectionList);
 
         addConnection(destination, data);
+    }
+
+    private List<Edge> findConnections(String name){
+        return edgeList.get(name);
     }
 
     @Override
@@ -87,6 +88,8 @@ public class Graph {
         graph.addConnection("Ganesh", "Ruby");
         graph.addConnection("Ganesh", "Divya");
         graph.addConnection("Divya", "Ruby");
+
+        System.out.println("Connections of Ganesh"+graph.findConnections("Ganesh"));
         System.out.println("Graph : " + graph);
         graph.removeConnection("Divya", "Ganesh",false);
 
