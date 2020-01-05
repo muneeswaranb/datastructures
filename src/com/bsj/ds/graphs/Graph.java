@@ -25,6 +25,21 @@ public class Graph {
         }
     }
 
+    private void removeConnection(String data, String destination,Boolean removalFlag){
+        LinkedList<Edge> connectionList = edgeList.get(destination);
+        if (connectionList == null) {
+            return;
+        }
+        for(int i=0;i<connectionList.size()&&removalFlag==false;i++){
+            if(data.equalsIgnoreCase(connectionList.get(i).endVertex))
+            {
+                removalFlag=true;
+                connectionList.remove(i);
+                removeConnection(destination,data,Boolean.FALSE);
+            }
+        }
+        edgeList.put(destination, connectionList);
+    }
     private void addConnection(String data, String destination) {
         addVertex(data);
         LinkedList<Edge> connectionList = edgeList.get(destination);
@@ -72,9 +87,11 @@ public class Graph {
         graph.addConnection("Ganesh", "Ruby");
         graph.addConnection("Ganesh", "Divya");
         graph.addConnection("Divya", "Ruby");
+        System.out.println("Graph : " + graph);
+        graph.removeConnection("Divya", "Ganesh",false);
 
         /* graph.addConnection("Sakthi", "Ruby");*/
-        System.out.println("Graph : " + graph);
+        System.out.println("Graph post removal : " + graph);
     }
 }
 
